@@ -1,0 +1,15 @@
+﻿@using  BusinessLayer
+@model IEnumerable<Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<ul>
+    @foreach(Employee employee in @Model)
+    {
+        <li>@employee.Name</li>
+    }
+</ul>
+
