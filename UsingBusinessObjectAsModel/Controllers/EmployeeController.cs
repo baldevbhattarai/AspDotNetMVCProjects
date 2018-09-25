@@ -30,12 +30,17 @@ namespace UsingBusinessObjectAsModel.Controllers
         public ActionResult Create_Post()
         {
             Employee employee = new Employee();
-            UpdateModel(employee);
-            EmployeeBusinessLayer employeeBusinessLayer =
-                new EmployeeBusinessLayer();
+            //UpdateModel(employee);
+            TryUpdateModel(employee);
+            if (ModelState.IsValid)
+            {
+                EmployeeBusinessLayer employeeBusinessLayer =
+                    new EmployeeBusinessLayer();
 
-            employeeBusinessLayer.AddEmmployee(employee);
-            return RedirectToAction("Index");
+                employeeBusinessLayer.AddEmmployee(employee);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
