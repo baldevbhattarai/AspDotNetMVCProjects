@@ -19,27 +19,18 @@ namespace UsingBusinessObjectAsModel.Controllers
             return View(employees);
         }
         [HttpGet]
-        public ActionResult Create()
+        [ActionName("Create")]
+        public ActionResult Create_Get()
         {
           return View();
         }
+
         [HttpPost]
-        //public ActionResult Create(FormCollection formCollection)
-        public ActionResult Create(string name, string gender, string city, DateTime dateofbirth)
+        [ActionName("Create")]
+        public ActionResult Create_Post()
         {
             Employee employee = new Employee();
-            // Retrieve form data using form collection
-            //employee.Name = formCollection["Name"];
-            //employee.Gender = formCollection["Gender"];
-            //employee.City = formCollection["City"];
-            //employee.DateOfBirth =
-            //    Convert.ToDateTime(formCollection["DateOfBirth"]);
-
-            // we can easily do like..
-            employee.Name = name;
-            employee.Gender = gender;
-            employee.City = city;
-            employee.DateOfBirth = dateofbirth;
+            UpdateModel(employee);
             EmployeeBusinessLayer employeeBusinessLayer =
                 new EmployeeBusinessLayer();
 
