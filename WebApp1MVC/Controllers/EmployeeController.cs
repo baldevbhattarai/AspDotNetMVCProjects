@@ -10,10 +10,10 @@ namespace WebApp1MVC.Controllers
     public class EmployeeController : Controller
     {
         
-        public ActionResult Index()
+        public ActionResult Index(int departmentId)
         {
             EmployeeContext employeeContext = new EmployeeContext();
-            List<Employee> employees = employeeContext.employees.ToList();
+            List<Employee> employees = employeeContext.employees.Where(emp=>emp.DepartmentId==departmentId).ToList();
 
             return View(employees);
         }
