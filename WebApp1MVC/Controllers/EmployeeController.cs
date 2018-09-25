@@ -10,18 +10,11 @@ namespace WebApp1MVC.Controllers
     public class EmployeeController : Controller
     {
         // GET: Employee
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            Employee employee = new Employee()
-            {
+            EmployeeContext employeeContext = new EmployeeContext();
+           Employee employee =  employeeContext.employees.Single(x=>x.EmployeeId==id);
 
-                EmployeeId = 101,
-                Name = "John",
-                Gender = "Male",
-                City = "London"
-            };
-
-            
             return View(employee);
         }
     }
