@@ -9,7 +9,14 @@ namespace WebApp1MVC.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Employee
+        
+        public ActionResult Index()
+        {
+            EmployeeContext employeeContext = new EmployeeContext();
+            List<Employee> employees = employeeContext.employees.ToList();
+
+            return View(employees);
+        }
         public ActionResult Details(int id)
         {
             EmployeeContext employeeContext = new EmployeeContext();
