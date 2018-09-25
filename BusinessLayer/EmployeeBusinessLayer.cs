@@ -54,6 +54,46 @@ namespace BusinessLayer
                 SqlParameter paramName = new SqlParameter();
                 paramName.ParameterName = "@Name";
                 paramName.Value = employee.Name;
+
+                cmd.Parameters.Add(paramName);
+
+                SqlParameter paramGender = new SqlParameter();
+                paramGender.ParameterName = "@Gender";
+                paramGender.Value = employee.Gender;
+                cmd.Parameters.Add(paramGender);
+
+                SqlParameter paramCity = new SqlParameter();
+                paramCity.ParameterName = "@City";
+                paramCity.Value = employee.City;
+                cmd.Parameters.Add(paramCity);
+
+                SqlParameter paramDateOfBirth = new SqlParameter();
+                paramDateOfBirth.ParameterName = "@DateOfBirth";
+                paramDateOfBirth.Value = employee.DateOfBirth;
+                cmd.Parameters.Add(paramDateOfBirth);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void SaveEmmployee(Employee employee)
+        {
+            string connectionString =
+                    ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spSaveEmployee", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramId = new SqlParameter();
+                paramId.ParameterName = "@Id";
+                paramId.Value = employee.ID;
+                cmd.Parameters.Add(paramId);
+
+                SqlParameter paramName = new SqlParameter();
+                paramName.ParameterName = "@Name";
+                paramName.Value = employee.Name;
                 cmd.Parameters.Add(paramName);
 
                 SqlParameter paramGender = new SqlParameter();

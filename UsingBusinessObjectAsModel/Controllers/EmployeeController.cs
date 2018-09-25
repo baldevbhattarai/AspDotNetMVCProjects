@@ -42,5 +42,28 @@ namespace UsingBusinessObjectAsModel.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            EmployeeBusinessLayer employeeBusinessLayer =
+                   new EmployeeBusinessLayer();
+            Employee employee =
+                   employeeBusinessLayer.Employees.Single(emp => emp.ID == id);
+
+            return View(employee);
+        }
+        [HttpPost]
+        public ActionResult Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeBusinessLayer employeeBusinessLayer =
+                    new EmployeeBusinessLayer();
+                employeeBusinessLayer.SaveEmmployee(employee);
+
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
     }
 }
