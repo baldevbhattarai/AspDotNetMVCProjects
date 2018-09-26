@@ -85,5 +85,12 @@ namespace UsingBusinessObjectAsModel.Controllers
 
         //    return View(employee);
         //}
+        public ActionResult Delete(int id)
+        {
+            EmployeeBusinessLayer employeeBusinessLayer =
+                new EmployeeBusinessLayer();
+            employeeBusinessLayer.DeleteEmployee(id);
+            return RedirectToAction("Index");
+        }
     }
 }
