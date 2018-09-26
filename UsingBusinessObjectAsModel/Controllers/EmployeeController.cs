@@ -52,34 +52,38 @@ namespace UsingBusinessObjectAsModel.Controllers
 
             return View(employee);
         }
-        //[HttpPost]
-        //public ActionResult Edit(Employee employee)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        EmployeeBusinessLayer employeeBusinessLayer =
-        //            new EmployeeBusinessLayer();
-        //        employeeBusinessLayer.SaveEmmployee(employee);
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(employee);
-        //}
         [HttpPost]
         [ActionName("Edit")]
-        public ActionResult Edit_Post([Bind(Include = "Id, Gender, City, DateOfBirth")] Employee employee)
+        public ActionResult Edit_Post(int id)
         {
-            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
-            employee.Name = employeeBusinessLayer.Employees.Single(x => x.ID == employee.ID).Name;
-
+           
+                EmployeeBusinessLayer employeeBusinessLayer =
+                    new EmployeeBusinessLayer();
+            Employee employee = employeeBusinessLayer.Employees.Single(emp => emp.ID == id);
+            UpdateModel<IEmployee>(employee);
             if (ModelState.IsValid)
             {
                 employeeBusinessLayer.SaveEmmployee(employee);
 
                 return RedirectToAction("Index");
             }
-
             return View(employee);
         }
+        //[HttpPost]
+        //[ActionName("Edit")]
+        //public ActionResult Edit_Post([Bind(Include = "Id, Gender, City, DateOfBirth")] Employee employee)
+        //{
+        //    EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+        //    employee.Name = employeeBusinessLayer.Employees.Single(x => x.ID == employee.ID).Name;
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        employeeBusinessLayer.SaveEmmployee(employee);
+
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(employee);
+        //}
     }
 }
