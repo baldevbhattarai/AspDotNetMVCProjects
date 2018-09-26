@@ -52,17 +52,33 @@ namespace UsingBusinessObjectAsModel.Controllers
 
             return View(employee);
         }
+        //[HttpPost]
+        //public ActionResult Edit(Employee employee)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        EmployeeBusinessLayer employeeBusinessLayer =
+        //            new EmployeeBusinessLayer();
+        //        employeeBusinessLayer.SaveEmmployee(employee);
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(employee);
+        //}
         [HttpPost]
-        public ActionResult Edit(Employee employee)
+        [ActionName("Edit")]
+        public ActionResult Edit_Post([Bind(Include = "Id, Gender, City, DateOfBirth")] Employee employee)
         {
+            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+            employee.Name = employeeBusinessLayer.Employees.Single(x => x.ID == employee.ID).Name;
+
             if (ModelState.IsValid)
             {
-                EmployeeBusinessLayer employeeBusinessLayer =
-                    new EmployeeBusinessLayer();
                 employeeBusinessLayer.SaveEmmployee(employee);
 
                 return RedirectToAction("Index");
             }
+
             return View(employee);
         }
     }
