@@ -85,6 +85,7 @@ namespace UsingBusinessObjectAsModel.Controllers
 
         //    return View(employee);
         //}
+        [HttpPost]
         public ActionResult Delete(int id)
         {
             EmployeeBusinessLayer employeeBusinessLayer =
