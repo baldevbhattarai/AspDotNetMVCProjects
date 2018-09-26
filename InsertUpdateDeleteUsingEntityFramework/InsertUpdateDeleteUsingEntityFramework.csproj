@@ -145,6 +145,7 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>EmployeeDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Employee2.cs" />
     <Compile Include="Models\EmployeeDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
