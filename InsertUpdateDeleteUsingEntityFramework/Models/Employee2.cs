@@ -13,7 +13,7 @@ namespace InsertUpdateDeleteUsingEntityFramework.Models
 
     public class EmployeeMetaData
     {
-        [Required]
+       
         public string Name { get; set; }
 
         [Required]
