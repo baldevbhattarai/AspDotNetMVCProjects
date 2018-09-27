@@ -131,6 +131,7 @@
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\EmployeesByDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Models\Department.cs">
       <DependentUpon>EmployeeDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DepartmentTotals.cs" />
     <Compile Include="Models\Dept.cs" />
     <Compile Include="Models\Employee.cs">
       <DependentUpon>EmployeeDataModel.tt</DependentUpon>

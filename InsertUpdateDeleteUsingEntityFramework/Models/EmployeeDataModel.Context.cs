@@ -27,5 +27,7 @@ namespace InsertUpdateDeleteUsingEntityFramework.Models
     
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+
+        public System.Data.Entity.DbSet<InsertUpdateDeleteUsingEntityFramework.Models.DepartmentTotals> DepartmentTotals { get; set; }
     }
 }
