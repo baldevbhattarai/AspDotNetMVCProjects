@@ -1,0 +1,15 @@
+﻿@model ListBox.Models.ViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="font-family:Arial">
+    <h2>Index</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ListBoxFor(m => m.SelectedCities, Model.Cities, new { size = 6 })
+        <br />
+        <input type="submit" value="Submit" />
+    }
+</div>

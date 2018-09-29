@@ -21,17 +21,7 @@ namespace InsertUpdateDeleteUsingEntityFramework.Controllers
             return View(employees.ToList());
         }
 
-        public ActionResult EmployeesByDepartment()
-        {
-            var departmentTotals = db.Employees.Include("Department")
-                                        .GroupBy(x => x.Department.Name)
-                                        .Select(y => new DepartmentTotals
-                                        {
-                                            Name = y.Key,
-                                            Total = y.Count()
-                                        }).ToList();
-            return View(departmentTotals);
-        }
+
         // GET: Employee/Details/5
         public ActionResult Details(int? id)
         {
@@ -50,7 +40,7 @@ namespace InsertUpdateDeleteUsingEntityFramework.Controllers
         // GET: Employee/Create
         public ActionResult Create()
         {
-            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Name");
+            ViewBag.Departments = new SelectList(db.Departments, "Id", "Name","2");
             return View();
         }
 
