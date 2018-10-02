@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomHtmlHelperDemo", "Cus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreventingCrossSiteScriptingAttack", "PreventingCrossSiteScriptingAttack\PreventingCrossSiteScriptingAttack.csproj", "{C09E2F79-FB79-4509-8292-3C0A1394D545}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayOut", "Layout\LayOut.csproj", "{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C09E2F79-FB79-4509-8292-3C0A1394D545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09E2F79-FB79-4509-8292-3C0A1394D545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09E2F79-FB79-4509-8292-3C0A1394D545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
