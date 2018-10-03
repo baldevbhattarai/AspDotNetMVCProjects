@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Layout.Models;
+using PagedList.Mvc;
+using PagedList;
 
 namespace Layout.Controllers
 {
@@ -15,9 +17,16 @@ namespace Layout.Controllers
         private SampleDBContext db = new SampleDBContext();
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search, int? page)
         {
-            return View(db.Employees.ToList());
+            if (searchBy == "Gender")
+            {
+                return View(db.Employees.Where(x => x.Gender == search || search == null).ToList().ToPagedList(page??1,3));
+            }
+            else
+            {
+                return View(db.Employees.Where(x => x.FullName.StartsWith(search) || search == null).ToList().ToPagedList(page ?? 1, 3));
+            }
         }
 
         // GET: Home/Details/5

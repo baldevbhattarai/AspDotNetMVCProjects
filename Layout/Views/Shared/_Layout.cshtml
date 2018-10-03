@@ -6,14 +6,23 @@
         need to reference them in each and every view*@
 </head>
 <body>
-    <table border="1" style="width:800px; font-family:Arial">
+    <table border="1" style="font-family:Arial">
         <tr>
             <td colspan="2" style="text-align:center">
                 <h3>Website Header</h3>
+                <p>
+                    @using (@Html.BeginForm("Index", "Home", FormMethod.Get))
+                    {
+                        <b>Search By:</b>
+                        @Html.RadioButton("searchBy", "Name", true) <text>Name</text>
+                        @Html.RadioButton("searchBy", "Gender") <text>Gender</text><br />
+                        @Html.TextBox("search") <input type="submit" value="search" />
+                    }
+                </p>
             </td>
         </tr>
         <tr>
-            <td style="width:200px">
+            <td>
                 @if (IsSectionDefined("Menu"))
                 {
                     @RenderSection("Menu", false)
@@ -23,7 +32,7 @@
                     @Html.ActionLink("Employee List", "Index")
                 }
             </td>
-            <td style="width:600px">
+            <td >
                 @RenderBody()
             </td>
         </tr>
