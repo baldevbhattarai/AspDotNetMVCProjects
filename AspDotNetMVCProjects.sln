@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreventingCrossSiteScriptin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayOut", "Layout\LayOut.csproj", "{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sortby", "Sortby\Sortby.csproj", "{31318F11-1983-42E2-BA3C-1590A7E25046}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4307E7C-523F-4043-9F7F-39C4C6AAB72B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31318F11-1983-42E2-BA3C-1590A7E25046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31318F11-1983-42E2-BA3C-1590A7E25046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31318F11-1983-42E2-BA3C-1590A7E25046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31318F11-1983-42E2-BA3C-1590A7E25046}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
