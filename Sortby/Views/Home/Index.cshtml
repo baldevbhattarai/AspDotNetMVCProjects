@@ -3,13 +3,34 @@
 @using PagedList.Mvc;
 
 @model PagedList.IPagedList<Sortby.Models.Employee>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $("#checkAll").click(function () {
+            $("input[name='employeeIdsToDelete']").attr("checked", this.checked);
 
+            $("input[name='employeeIdsToDelete']").click(function () {
+                if ($("input[name='employeeIdsToDelete']").length == $("input[name='employeeIdsToDelete']:checked").length) {
+                    $("#checkAll").attr("checked", "checked");
+                }
+                else {
+                    $("#checkAll").removeAttr("checked");
+                }
+            });
 
-@{
-    ViewBag.Title = "Index";
-}
-
-
+        });
+        $("#btnSubmit").click(function () {
+            var count = $("input[name='employeeIdsToDelete']:checked").length;
+            if (count == 0) {
+                alert("No rows selected to delete");
+                return false;
+            }
+            else {
+                return confirm(count + " row(s) will be deleted");
+            }
+        });
+    });
+</script>
 <div>
 
     <h2>Employee List</h2>
@@ -30,7 +51,7 @@
         <table class="table" border="1">
             <tr>
                 <th>
-                    Select
+                    <input type="checkbox" id="checkAll" />
                 </th>
                 <th>
                     @Html.ActionLink("Name", "Index", new { sortBy = ViewBag.NameSort, searchBy = Request["searchBy"], search = Request["search"] })
@@ -78,7 +99,7 @@
                 }*@
 
         </table>
-        <input type="submit" value="Delete selected employees" />
+        <input type="submit" id="btnSubmit" value="Delete selected employees" />
         <br />
         @Html.PagedListPager(Model, page => Url.Action("Index",
          new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"], sortBy = Request["sortBy"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
