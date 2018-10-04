@@ -23,54 +23,64 @@
 
         }
     </p>
-    <table class="table" border="1">
-        <tr>
-            <th>
-                @Html.ActionLink("Name", "Index", new { sortBy = ViewBag.NameSort, searchBy = Request["searchBy"], search = Request["search"] })
-            </th>
-            <th>
-                @Html.ActionLink("Gender", "Index", new { sortBy = ViewBag.GenderSort, searchBy = Request["searchBy"], search = Request["search"] })
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().HireDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().EmailAddress)
-            </th>
+    @using (Html.BeginForm())
+    {
 
-            <th>Actions</th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
+        <table class="table" border="1">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HireDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+                <th>
+                    Select
+                </th>
+                <th>
+                    @Html.ActionLink("Name", "Index", new { sortBy = ViewBag.NameSort, searchBy = Request["searchBy"], search = Request["search"] })
+                </th>
+                <th>
+                    @Html.ActionLink("Gender", "Index", new { sortBy = ViewBag.GenderSort, searchBy = Request["searchBy"], search = Request["search"] })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Age)
+                </th>
 
-    </table>
-    @Html.PagedListPager(Model, page => Url.Action("Index",
-        new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"], sortBy = Request["sortBy"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+                <th>
+                    @Html.DisplayNameFor(model => model.First().EmailAddress)
+                </th>
+
+            </tr>
+            <tr>
+                @Html.EditorForModel()
+            </tr>
+
+            @*@foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HireDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }*@
+
+        </table>
+        <input type="submit" value="Delete selected employees" />
+        <br />
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+         new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"], sortBy = Request["sortBy"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+    }
 </div>

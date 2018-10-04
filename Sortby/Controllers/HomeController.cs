@@ -50,6 +50,18 @@ namespace Sortby.Controllers
             return View(employees.ToPagedList(page ?? 1, 3));
         }
 
+        [HttpPost]
+        public ActionResult Index(IEnumerable<int> employeeIdsToDelete)
+        {
+            //db.Employees.Where(x => employeeIdsToDelete.Contains(x.Id)).ToList().ForEach(db.Employees.DeleteObjects);
+            foreach(int id in employeeIdsToDelete)
+            {
+                Employee employee = db.Employees.Single(x => x.Id == id);
+                db.Employees.Remove(employee);
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Home/Details/5
         public ActionResult Details(int? id)
         {
