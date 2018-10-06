@@ -111,6 +111,9 @@ pre {
   white-space: pre-wrap;
 }
 
+.validation-summary-valid {
+    display: none;
+}
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
