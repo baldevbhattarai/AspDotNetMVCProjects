@@ -16,12 +16,12 @@ namespace Sortby.Models
     public partial class Employee
     {
         public int Id { get; set; }
-        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
         public string FullName { get; set; }
         public string Gender { get; set; }
+       // [Range(1, 100)]
         public Nullable<int> Age { get; set; }
         public Nullable<System.DateTime> HireDate { get; set; }
-        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
+       // [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
         public string EmailAddress { get; set; }
         public Nullable<int> Salary { get; set; }
         public string PersonalWebSite { get; set; }
