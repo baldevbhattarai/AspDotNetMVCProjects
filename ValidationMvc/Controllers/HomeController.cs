@@ -55,10 +55,10 @@ namespace ValidationMvc.Controllers
         public ActionResult Create([Bind(Include = "Id,FullName,UserName,Password")] User user)
         {
             // Check if the UserName already exists, and if it does, add Model validation error
-            if (db.Users.Any(x => x.UserName == user.UserName))
-            {
-                ModelState.AddModelError("UserName", "UserName already in use");
-            }
+            //if (db.Users.Any(x => x.UserName == user.UserName))
+            //{
+            //    ModelState.AddModelError("UserName", "UserName already in use");
+            //}
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
