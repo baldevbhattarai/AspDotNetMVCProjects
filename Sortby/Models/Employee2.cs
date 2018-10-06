@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-
+using Sortby.Common;
 namespace Sortby.Models
 {
     [MetadataType(typeof(EmployeeMetaData))]
@@ -20,6 +20,9 @@ namespace Sortby.Models
         public string Gender { get; set; }
         [Range(1, 100)]
         public Nullable<int> Age { get; set; }
+
+        [DateRange("01/01/2000")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> HireDate { get; set; }
         [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
         public string EmailAddress { get; set; }
