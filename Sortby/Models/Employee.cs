@@ -16,6 +16,7 @@ namespace Sortby.Models
     public partial class Employee
     {
         public int Id { get; set; }
+        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
         public string FullName { get; set; }
         public string Gender { get; set; }
         public Nullable<int> Age { get; set; }
