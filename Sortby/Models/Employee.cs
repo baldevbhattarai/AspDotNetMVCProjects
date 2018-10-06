@@ -11,7 +11,8 @@ namespace Sortby.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employee
     {
         public int Id { get; set; }
@@ -19,6 +20,7 @@ namespace Sortby.Models
         public string Gender { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<System.DateTime> HireDate { get; set; }
+        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$")]
         public string EmailAddress { get; set; }
         public Nullable<int> Salary { get; set; }
         public string PersonalWebSite { get; set; }
