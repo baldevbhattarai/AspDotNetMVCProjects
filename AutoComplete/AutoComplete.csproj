@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{608C0111-C712-4C15-94A5-25AFE93332D6}</ProjectGuid>
+    <ProjectGuid>{C15F68BF-FEFF-453D-B01D-97A645D78411}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AjaxMVC</RootNamespace>
-    <AssemblyName>AjaxMVC</AssemblyName>
+    <RootNamespace>AutoComplete</RootNamespace>
+    <AssemblyName>AutoComplete</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -98,38 +98,37 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\spinner.gif" />
-    <Content Include="Models\SampleDBModel.Context.tt">
+    <Content Include="Models\DatabaseContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SampleDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>SampleDBModel.edmx</DependentUpon>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+      <LastGenOutput>DatabaseContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SampleDBModel.tt">
+    <Content Include="Models\DatabaseContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SampleDBModel.edmx</DependentUpon>
-      <LastGenOutput>SampleDBModel.cs</LastGenOutput>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+      <LastGenOutput>DatabaseContext.cs</LastGenOutput>
     </Content>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -137,40 +136,44 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleDBModel.Context.cs">
+    <Compile Include="Models\DatabaseContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleDBModel.Context.tt</DependentUpon>
+      <DependentUpon>DatabaseContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleDBModel.cs">
+    <Compile Include="Models\DatabaseContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleDBModel.tt</DependentUpon>
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleDBModel.Designer.cs">
+    <Compile Include="Models\DatabaseContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleDBModel.edmx</DependentUpon>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>SampleDBModel.tt</DependentUpon>
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\SampleDBModel.edmx">
+    <EntityDeploy Include="Models\DatabaseContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SampleDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DatabaseContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SampleDBModel.edmx.diagram">
-      <DependentUpon>SampleDBModel.edmx</DependentUpon>
+    <Content Include="Models\DatabaseContext.edmx.diagram">
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Shared\_Student.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,9 +200,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51048</DevelopmentServerPort>
+          <DevelopmentServerPort>62330</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51048/</IISUrl>
+          <IISUrl>http://localhost:62330/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

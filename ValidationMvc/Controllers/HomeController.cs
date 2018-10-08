@@ -35,7 +35,7 @@ namespace ValidationMvc.Controllers
         // Return all students
         public PartialViewResult All()
         {
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(2000);
             List<Student> model = dbs.Students.ToList();
             return PartialView("_Student", model);
         }
