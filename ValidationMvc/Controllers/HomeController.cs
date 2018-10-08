@@ -25,7 +25,36 @@ namespace ValidationMvc.Controllers
             return Json(!db.Users.Any(x => x.UserName == UserName),
                                                  JsonRequestBehavior.AllowGet);
         }
+        SampleDBStudents dbs = new SampleDBStudents();
+        public ActionResult Students()
+        {
+            
+            return View();
+        }
 
+        // Return all students
+        public PartialViewResult All()
+        {
+            System.Threading.Thread.Sleep(1000);
+            List<Student> model = dbs.Students.ToList();
+            return PartialView("_Student", model);
+        }
+
+        // Return Top3 students
+        public PartialViewResult Top3()
+        {
+            System.Threading.Thread.Sleep(1000);
+            List<Student> model = dbs.Students.OrderByDescending(x => x.TotalMarks).Take(3).ToList();
+            return PartialView("_Student", model);
+        }
+
+        // Return Bottom3 students
+        public PartialViewResult Bottom3()
+        {
+            System.Threading.Thread.Sleep(1000);
+            List<Student> model = dbs.Students.OrderBy(x => x.TotalMarks).Take(3).ToList();
+            return PartialView("_Student", model);
+        }
         // GET: Home/Details/5
         public ActionResult Details(int? id)
         {

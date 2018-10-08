@@ -1,0 +1,68 @@
+﻿
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script type="text/javascript" language="javascript">
+    $(function () {
+       
+        $("#btnSubmit").click(function () {
+           
+                alert("button clicked");
+        });
+    });
+    $(function Beforebegin() {
+        alert("This is before begin");
+    });
+</script>
+<h2>Students</h2>
+
+@Ajax.ActionLink("All",
+    "All",
+    new AjaxOptions
+    {
+
+        HttpMethod="GET",
+        UpdateTargetId= "students",
+        InsertionMode = InsertionMode.Replace,
+       // OnBegin = "Beforebegin",
+        //Confirm = "are you sure?"
+    })
+
+<span style="color:Blue">|</span>
+
+@Ajax.ActionLink("Top 3", "Top3",
+    new AjaxOptions
+    {
+        HttpMethod = "GET", UpdateTargetId= "students",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "divloading",
+       //OnBegin = "Beforebegin",
+        //Confirm = "are you sure?",
+    })
+
+<span style="color:Blue">|</span>
+
+@Ajax.ActionLink("Bottom 3", "Bottom3",
+    new AjaxOptions
+    {
+        HttpMethod = "GET", // HttpMethod to use, GET or POST
+        UpdateTargetId = "students", // ID of the HTML element to update
+        InsertionMode = InsertionMode.Replace ,
+        LoadingElementId = "divloading",
+      //  OnBegin = "Beforebegin",
+        //Confirm = "are you sure?",
+    })
+
+<br />
+<br />
+
+<div id="divloading" style="display:none">
+    <img src="~/Images/spinner.gif" />
+</div>
+<div id="students">
+
+</div>
+
+

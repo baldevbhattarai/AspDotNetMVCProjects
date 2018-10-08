@@ -1,0 +1,60 @@
+﻿
+
+<div style="font-family:Arial">
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script type="text/javascript" language="javascript">
+        function ClearResults() {
+            $("#divStudents").empty();
+        }
+    </script>
+    <div id="header">
+        <h2>Students</h2>
+    </div>
+    @Ajax.ActionLink("All","All",
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "divStudents",
+            InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "divloading",
+            OnBegin = "ClearResults"
+        })
+
+    <span style="color:Blue">|</span>
+
+    @Ajax.ActionLink("Top 3", "Top3",
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "divStudents",
+            InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "divloading",
+            OnBegin = "ClearResults"
+        })
+
+    <span style="color:Blue">|</span>
+
+    @Ajax.ActionLink("Bottom 3", "Bottom3",
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "divStudents",
+            InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "divloading",
+            OnBegin = "ClearResults"
+        })
+
+    <br />
+    <br />
+    <div id="divloading" style="display:none">
+        <img src="~/Images/spinner.gif" />
+    </div>
+    <div id="divStudents">
+
+    </div>
+</div>
